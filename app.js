@@ -1,4 +1,4 @@
-const showbtn = document.getElementsByClassName('show-items-btn');
+const showBtn = document.getElementsByClassName('show-items-btn');
 const items = document.querySelector('.items');
 const field = document.querySelector('.crossword-field');
 const params = {
@@ -10,11 +10,11 @@ const params = {
 }
 
 // GENERATE CROSSWORD
-showbtn[0].addEventListener('click', function() {
-    var questions = [];
-    var answers = [];
-    var entries = [];
-    var dir  = Math.round( Math.random() );
+showBtn[0].addEventListener('click', function() {
+    let questions = [];
+    let answers = [];
+    let entries = [];
+    let dir  = Math.round( Math.random() );
 
     if (items.innerHTML != '') {
         items.innerHTML = '';
@@ -35,11 +35,11 @@ showbtn[0].addEventListener('click', function() {
 
     function startingWord() {
         for (let i = 0; i < answers.length; i++) {
-            var entry = answers[i].split('');
+            const entry = answers[i].split('');
             entries.push(entry);
         }
         for (let i = 0; i < entries[0].length; i++) {
-            var cell = document.createElement('div');
+            const cell = document.createElement('div');
             field.appendChild(cell);
             cell.classList.add('cell');
             cell.innerText = entries[0][i];
@@ -47,9 +47,9 @@ showbtn[0].addEventListener('click', function() {
     }
 
     function startingPosition() {
-        var cell = document.querySelectorAll('.cell');
-        var top  = Math.round( (Math.random() * params.maxY) ) + params.treshold;
-        var left = Math.round( (Math.random() * params.maxX) ) + params.treshold;
+        const cell = document.querySelectorAll('.cell');
+        const top  = Math.round( (Math.random() * params.maxY) ) + params.treshold;
+        const left = Math.round( (Math.random() * params.maxX) ) + params.treshold;
 
         for (let i = 0; i < cell.length; i++) {
             if ( dir == 0 ) {
